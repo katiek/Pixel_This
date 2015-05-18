@@ -1,0 +1,42 @@
+<html>
+
+<head>
+<style>
+body {
+	margin: 0;
+}
+.katie {
+	background-color: yellow;
+	width: 100px;
+	height: 100px;
+}
+
+.katie:after {
+	position: relative;
+	left: 100px;
+	content: "Katie";
+}
+
+.katie:nth-child(2n) {
+	background-color: black;
+}
+
+.another {
+	width: 500px;
+	height: 500px;
+	background-color: lightgreen;
+}
+</style>
+</head>
+<body>
+<div class='katie'></div>
+<div class='katie'></div>
+<div class='katie'></div>
+<div class='katie'></div>
+
+<div class='another'>
+	<div class='katie'></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+
+<head>
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+}
+</style>
+</head>
+
+<body>
+    <div id='box'>
+    </div>
+    <script>
+    var box = document.getElementById('box');
+    box.addEventListener('dblclick', function(eventInfo) {
+    	console.log(eventInfo);
+    });
+    // window.addEventListener('mousemove', function(myInfo) {
+    // 	console.log(myInfo);
+    // });
+    </script>
+</body>
+
+</html>

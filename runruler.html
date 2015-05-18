@@ -1,0 +1,175 @@
+<html>
+
+<head>
+    <title>Welcome to HTML</title>
+    <style>
+    /*	h1 {
+			color:white;
+			padding: 20px;	
+		}
+		body {
+			background-color: #123456;
+			font-family: Georgia;
+		}	
+		.square {
+			background-color: #898945;
+			height:24%;
+			width:24%;
+
+			position: fixed;
+				bottom:0;	
+				right:0;
+
+		}
+		#navigation {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		#navigation li {
+			height:33%;
+			font-size: 3em;
+		}
+		body {
+			margin:0;
+			padding:0;
+		}*/
+    /*#right-ruler {
+			height: 100%;
+			width: 40px;
+			background-color: #236744;
+			position: fixed;
+				top: 0;
+				right: 0;
+		}*/
+    
+    .pixelContainer:hover span {
+        visibility: visible !important;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="right-ruler"></div> -->
+    <!-- 	<h1>Hello!</h1>	
+
+	<div class="square">
+		<ul id="navigation">
+			<li>Workspace 1</li>
+			<li>Workspace 2</li>
+			<li>Workspace 3</li>
+
+		</ul>
+	</div> -->
+    <script>
+    // var ______ = document.createElement('div') will create a box on the webpage that javascript will recognize as ______
+    var Ruler = function() {
+    	var self= this;
+        console.log("Making the ruler");
+        this.ruler = document.createElement('div');
+        this.ruler.classList.add('ruler');
+        //_____.style.designattributeyouwanttochange= assigns an attribute to the box 
+        this.ruler.style.height = '100%';
+        this.ruler.style.width = '50px';
+        this.ruler.style.position = 'fixed';
+        this.ruler.style.left = '0px';
+        this.ruler.style.top = '0px';
+        console.log("Finished styling the ruler");
+
+        // for loop will loop through the equation assigned to the _____
+
+        for (var px = 0; px < screen.height; px = px + 1) {
+            console.log("Adding a pixel", px);
+            var pixelContainer = document.createElement('div');
+            pixelContainer.classList.add('pixelContainer');
+            pixelContainer.style.height = '1px';
+            pixelContainer.style.width = '100%';
+
+            var pixel = document.createElement('div'); // the var ____is now creating a box in the first _____
+            pixel.classList.add('pixel');
+            pixel.style.height = '1px';
+            if (px % 10 == 0) {
+                pixel.style.width = '50px';
+            } else if (px % 10 == 5) {
+                pixel.style.width = '45px';
+            } else {
+                pixel.style.width = '40px';
+            };
+
+            var pxm = px % 10;
+            var hue = 10 * pxm + 10;
+            pixel.style.backgroundColor = 'hsl(' + hue + ',100%,50%)';
+
+            var span = document.createElement('span');
+            span.innerHTML = px;
+
+            span.style.position = 'absolute';
+            span.style.left = 'calc(100% + 5px)';
+            span.style.visibility = 'hidden';
+            span.style.fontFamily = 'Georgia';
+            span.style.fontSize = '10px';
+
+
+            pixel.appendChild(span);
+            pixelContainer.appendChild(pixel);
+
+            this.ruler.appendChild(pixelContainer); // the now defined pixel is being applied to the ruler, work on % opacity to make ruler more translucent while floating on the page. 
+            //full opacity for top and left ruler
+            //when hovering over a pixel on your document the pixel line will turn on to a bright color not found on the ruler in general and will also display the pixel number
+
+        }
+
+        console.log("About to add the ruler to the body")
+        var myBody = document.body;
+        myBody.appendChild(this.ruler); //the ruler is now being applied to the body aka webpage
+
+        
+
+        console.log("done");
+    }
+
+    var mousePosition = {
+        'x': null,
+        'y': null
+    };
+    window.addEventListener('mousemove', function(eventInfo) {
+        mousePosition.x = eventInfo.x;
+        mousePosition.y = eventInfo.y;
+    });
+
+    var isMouseDown = false; // ?
+    var clickedRuler = null;
+    window.addEventListener('mousedown', function(eventInfo) {
+    	var maybeRuler = eventInfo.target.parentNode.parentNode;
+    	if (maybeRuler.classList.contains('ruler')) {
+    		clickedRuler= maybeRuler;
+    	}
+        isMouseDown = true;
+    });
+    window.addEventListener('mouseup', function(eventInfo) {
+        isMouseDown = false;
+        clickedRuler = null;
+    });
+  
+   window.addEventListener('mousemove', function(eventInfo) {
+        if (isMouseDown && !null) {
+            clickedRuler.style.left = mousePosition.x + 'px';
+            // clickedRuler.style.top = mousePosition.y + 'px';
+            
+        }
+    });
+
+    var ruler1 = new Ruler();
+    ruler1.ruler.addEventListener('dblclick', function(eventInfo) {
+        var ruler2 = new Ruler();
+        ruler2.ruler.style.left = '160px';
+    });
+    // var ruler2= new Ruler();
+    // 	ruler2.ruler.style.left= '160px';
+    //
+    </script>
+</body>
+
+</html>
+<!-- words inside <> are called TAGS
+ -->

@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+    position: absolute;
+}
+</style>
+</head>
+
+<body>
+    <div id='box'>
+    </div>
+    <script>
+    var mousePosition = {
+        'x': null,
+        'y': null
+    };
+    window.addEventListener('mousemove', function(eventInfo) {
+        mousePosition.x = eventInfo.x;
+        mousePosition.y = eventInfo.y;
+    });
+
+    var isMouseDown = false;
+    window.addEventListener('mousedown', function(eventInfo) {
+        isMouseDown = true;
+    });
+    window.addEventListener('mouseup', function(eventInfo) {
+        isMouseDown = false;
+    });
+    // box.addEventListener('dblclick', function(eventInfo) {
+    // 	console.log(mousePosition);
+    // });
+
+    window.addEventListener('mousemove', function(eventInfo) {
+        if (isMouseDown) {
+            var box = document.getElementById('box');
+            box.style.left = mousePosition.x + 'px';
+            box.style.top = mousePosition.y + 'px';
+            
+        }
+    });
+
+    // window.addEventListener('mousemove', function(myInfo) {
+    // 	console.log(myInfo);
+    // });
+    </script>
+</body>
+
+</html>

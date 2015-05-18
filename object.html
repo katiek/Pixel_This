@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <style>
+    </style>
+</head>
+
+<body>
+    <script>
+    var Ball = function(radius) {
+    	var div = document.createElement('div');
+    	div.style.width = radius + 'px';
+    	div.style.height = radius + 'px';
+    	div.style.borderRadius = '50px';
+    	div.style.backgroundColor = 'blue';
+
+    	div.style.position = 'absolute';
+    	div.style.left = Math.floor(Math.random()*100)+ '%';
+    	div.style.top = Math.floor(Math.random()*100)+ '%';
+    	document.body.appendChild(div);
+    };
+    
+    for (var katie = 0; katie < 10; katie = katie + 1) {
+    	Ball(katie*10);
+    }
+    </script>
+</body>
+
+</html>
