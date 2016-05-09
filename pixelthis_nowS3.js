@@ -101,8 +101,8 @@ var Ruler = function(orientation) { //? creates something and all the rules insi
                 };
             }
             var tickm = tick % 10; 
-            var hue = 10 * tickm + 10; //??if I want grey scale how do I do it? and whatis the difference between grey and gray??
-            pixel.style.backgroundColor = 'hsl(' + hue + ',100%,50%)';
+            var hue = 20 * tickm + 10; //??if I want grey scale how do I do it? and whatis the difference between grey and gray??
+            pixel.style.backgroundColor = 'hsla(' + hue + ',20%,50%,0.375)';
 
             var span = document.createElement('span'); //?? How does the span know what I want it to do??
             span.innerHTML = tick; //??if innerHTML is this then what is outerHTML?
